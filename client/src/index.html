@@ -19,46 +19,24 @@
     <!-- endinject -->
     <!-- endbuild -->
   </head>
-  <body>
+  <body ng-controller="MainController as ctrl">
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
-    <div layout="vertical" layout-fill ng-controller="MainController as main">
-    
-      <md-content>
-        <header>
-          <acme-navbar creation-date="main.creationDate"></acme-navbar>
-        </header>
-    
-        <section class="jumbotron">
-          <h1>'Allo, 'Allo!</h1>
-          <p class="lead">
-            <img src="assets/images/yeoman.png" alt="I'm Yeoman"><br>
-            Always a pleasure scaffolding your apps.
-          </p>
-          <md-button class="md-raised animated infinite" ng-class="main.classAnimation" ng-click="main.showToastr()">Splendid Toastr</md-button>
-          <p>
-            With ♥ thanks to the contributions of<acme-malarkey extra-values="['Yeoman', 'Gulp', 'Angular']"></acme-malarkey>
-          </p>
-        </section>
-    
-        <div class="techs" layout-align="center">
-          <md-card ng-repeat="awesomeThing in main.awesomeThings | orderBy:'rank'">
-            <md-card-content>
-              <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
-              <h3 class="md-title">{{ awesomeThing.title }}</h3>
-              <p>{{ awesomeThing.description }}</p>
-            </md-card-content>
-            <div class="md-action-buttons">
-              <md-button ng-href="{{ awesomeThing.url }}">Website</md-button>
-            </div>
-          </md-card>
-        </div>
-      </md-content>
-    
+   <div id="main" layout="row" layout-align="center center" style="height: 100%">
+       <div flex="66">
+	    <h3> Trie-experiment </h3>
+	    <form>  
+              <md-content>
+                <md-autocomplete md-search-text="ctrl.searchText" md-search-text-change="ctrl.getMatches(ctrl.searchText)" md-items="item in ctrl.getMatches(ctrl.searchText)" md-item-text="item.display">
+	          <md-item-template>
+                    <span>{{item.display}}</span> 
+                  </md-item-template> 
+                </md-autocomplete>
+              </md-content>
+           </form>
+       </div>
     </div>
-    
 
     <!-- build:js(src) scripts/vendor.js -->
     <!-- bower:js -->

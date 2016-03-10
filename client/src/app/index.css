@@ -82,3 +82,11 @@ section.jumbotron h1 {
   float: right;
   width: 100px;
 }
+
+#main {
+ background-color:#B2DFDB;
+}
+
+#main h3 {
+  color:white;
+}
