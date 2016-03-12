@@ -1,6 +1,6 @@
 require 'algorithms'
 
-dictionary_file = "/usr/share/dict/words"
+dictionary_file = "dictionary.txt"
 ::Dictionary = Containers::Trie.new
 
 file = File.new(dictionary_file, "r")
