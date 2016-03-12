@@ -28,9 +28,9 @@
 	    <h3> Trie-experiment </h3>
 	    <form>  
               <md-content>
-                <md-autocomplete md-search-text="ctrl.searchText" md-search-text-change="ctrl.getMatches(ctrl.searchText)" md-items="item in ctrl.getMatches(ctrl.searchText)" md-item-text="item.display">
+                <md-autocomplete md-search-text="ctrl.searchText" md-search-text-change="ctrl.setSearchText(ctrl.searchText)" md-items="item in ctrl.getMatches()" md-item-text="item" md-no-cache=true >
 	          <md-item-template>
-                    <span>{{item.display}}</span> 
+                    <span>{{item}}</span> 
                   </md-item-template> 
                 </md-autocomplete>
               </md-content>

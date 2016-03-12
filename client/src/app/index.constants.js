@@ -5,6 +5,6 @@
   angular
     .module('trieExperimentFrontend')
     .constant('malarkey', malarkey)
-    .constant('moment', moment);
-
+    .constant('moment', moment)
+    .constant('BACKEND','http://localhost:3000');
 })();
