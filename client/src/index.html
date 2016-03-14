@@ -28,10 +28,13 @@
 	    <h3> Trie-experiment </h3>
 	    <form>  
               <md-content>
-                <md-autocomplete md-search-text="ctrl.searchText" md-search-text-change="ctrl.setSearchText(ctrl.searchText)" md-items="item in ctrl.getMatches()" md-item-text="item" md-no-cache=true >
+                <md-autocomplete md-search-text="ctrl.searchText" md-search-text-change="ctrl.setSearchText(ctrl.searchText)" md-items="item in ctrl.getMatches()" md-item-text="item" md-no-cache=true md-delay=100>
 	          <md-item-template>
                     <span>{{item}}</span> 
                   </md-item-template> 
+		  <md-not-found>
+		    Did you mean <a style="color:red;">{{ctrl.mispelling}} </a>
+		  </md-not-found>
                 </md-autocomplete>
               </md-content>
            </form>

@@ -6,24 +6,20 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($resource,BACKEND,$q) {
+  function MainController($http,BACKEND,$q) {
     var vm = this;
+    vm.searchText = "";
 
-    vm.searchText= ""
-
-    var SearchResults = $resource(BACKEND+"/:searchText");
-
-    var successFunction = function (results) {
-      console.log(results)
-      return results;
-    }
+    vm.mispelling = "";
 
     vm.getMatches = function () {
-      var promise =  SearchResults.query({searchText: vm.searchText}).$promise;
-      promise.then(function(result){
-		return result	      
-      })
-      return promise;
+      return $http.get(BACKEND+"/"+vm.searchText)
+                  .then(function(result){
+                    if(!!result.data.correct){
+                      vm.mispelling = result.data.wrong[0];
+		    }
+	            return result.data.correct;   
+                   })
     }
 
     vm.setSearchText = function (searchText){
