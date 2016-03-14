@@ -9,7 +9,7 @@ gem 'spring', :group => :development
 
 gem 'pg'
 
-gem 'algorithms'
+gem 'rambling-trie'
 gem 'bk'
 
 # To use ActiveModel has_secure_password
@@ -22,7 +22,7 @@ gem 'bk'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano', :group => :development
+ gem 'sqlite3', :group => :development
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'

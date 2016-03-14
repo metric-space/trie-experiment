@@ -36,7 +36,6 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    algorithms (0.6.1)
     arel (6.0.3)
     bk (1.0.0)
       text
@@ -88,6 +87,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (11.0.1)
+    rambling-trie (0.8.0)
     spring (1.6.4)
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
@@ -96,6 +96,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sqlite3 (1.3.11)
     text (1.3.1)
     thor (0.19.1)
     thread_safe (0.3.5)
@@ -106,12 +107,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  algorithms
   bk
   pg
   rails (= 4.2.5)
   rails-api
+  rambling-trie
   spring
+  sqlite3
 
 BUNDLED WITH
    1.10.6
