@@ -17,9 +17,9 @@ class SearchController < ApplicationController
                    .keys
 		   .shuffle
 		   .take(1)
-      render json: {"mispelled" => lresult}
+      render json: {"correct" => [], "wrong" => lresult}
     else
-      render json: {"complete" => result}      
+      render json: {"correct" => result, "wrong" => []}      
     end
   end
 end
