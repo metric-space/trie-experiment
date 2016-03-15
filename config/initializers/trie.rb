@@ -1,15 +1,8 @@
 require 'rambling-trie'
 require 'bk'
+require 'YAML'
 
-dictionary_file = "dictionary.txt"
-::Dictionary = Rambling::Trie.create
-::Correct = BK::Tree.new 
+::Dictionary = YAML.load(File.read('trie.yaml'))
+::Correct = YAML.load(File.read('bk.yaml'))
 
-file = File.new(dictionary_file, "r")
-while (line = file.gets)
-  line = line.split("\n")[0]
-  Dictionary << line
-  Correct.add(line)
-end
-file.close
 
