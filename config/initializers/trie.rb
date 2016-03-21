@@ -1,33 +1,39 @@
 require 'rambling-trie'
 require 'bk'
+require 'parallel'
 
 ::Correct = {}
-::Dictionary = {}
+::Dictionary = Rambling::Trie.create
+
+
+#--- the importing of the file and getting the file into an array of words structure--
 
 dictionary_file = "dictionary.txt"
 
 file = File.open(dictionary_file,'r')
 
-huge_array = []
-
-alphabets = ("a".."z").to_a
+array_of_words = []
 
 while (line = file.gets)
   line = line.split("\n")[0]
-  huge_array << line
+  array_of_words << line
 end
 
-arrag = huge_array.group_by {|i| i[0] }
+# ------------------- End of Terribly Unimportant Stuff ------------------------------
 
-alphabets.map do |i| 
- Dictionary[i] = Rambling::Trie.create
- Correct[i] = BK::Tree.new
+mapped_array_of_words = array_of_words.group_by {|word| word[0] }
 
- arrag[i].map do |x| 
-	 Dictionary[i] << x 
-	 Correct[i].add x
- end
+
+### the following is the result of an experiment done (put link here)
+
+array_of_words.map do |x| 
+ Dictionary << x
 end
+
+Parallel.map(mapped_array_of_words.keys) do |i|
+  Correct[i] = BK::Tree.new 
+  mapped_array_of_words[i].map {|x| Correct[i].add  x}
+end 
 
 
 
